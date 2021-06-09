@@ -9,7 +9,19 @@ void main() {
 class CalendarApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(title: 'Calendar Demo', home: MyHomePage());
+    return MaterialApp(title: 'Calendar Demo' ,
+    initialRoute: "/",
+    routes: {
+    '/'       : (context) => Login(),
+    '/signIn' : (context) => SignIn() ,
+    '/signUp' : (context) => SignUp() ,
+    '/home'   : (context)=> MyHomePage(),
+    '/friends': (context) => Friends(),
+    '/groups' : (context) => Groups(),
+    '/messaging' : (context) => Messenger(),
+    '/setting' : (context) => Settings(),
+    }
+    );
   }
 }
 
@@ -115,4 +127,174 @@ class Meeting {
 
   /// IsAllDay which is equivalent to isAllDay property of [Appointment].
   bool isAllDay;
+}
+
+
+
+/// Friends Page which will display all your friends in a list and maybe allow to see your friends calendars
+class Friends extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      appBar: new AppBar(
+        title: Text("Friends Page"),
+      ),
+      body: Center(
+        child: Text("Welcome to the Friends Page ") ,
+      ),
+    );
+
+  }
+
+}
+/// Where Friends will be able to message each other
+class Messenger extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      appBar: new AppBar(
+        title: Text("Messenger Page"),
+      ),
+      body: Center(
+        child: Text("Welcome to the Messenger Page ") ,
+      ),
+    );
+
+  }
+
+}
+
+
+/// The groups page where you will be able to see your groups and maybe group calendars
+ class Groups extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      appBar: new AppBar(
+        title: Text("Groups Page"),
+      ),
+      body: Center(
+        child: Text("Welcome to the Groups Page ") ,
+      ),
+    );
+
+  }
+
+}
+
+/// Login Page
+class Login extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      appBar: new AppBar(
+        title: Text("Login Page"),
+      ),
+      body: Center(
+        child: Column(
+          children:  <Widget>[
+              ElevatedButton(
+                child: Text("Sign in"),
+              onPressed: () {
+                Navigator.pushNamed(context, '/signIn');
+              },
+            ),
+            ElevatedButton(
+              child: Text("Sign Up"),
+              onPressed: () {
+                Navigator.pushNamed(context, '/signUp');
+              },
+            ),
+            ElevatedButton(
+              child: Text("Home"),
+              onPressed: () {
+                Navigator.pushNamed(context, '/home');
+              },
+            ),
+            ElevatedButton(
+              child: Text("Friends"),
+              onPressed: () {
+                Navigator.pushNamed(context, '/friends');
+              },
+            ),
+            ElevatedButton(
+              child: Text("Settings"),
+              onPressed: () {
+                Navigator.pushNamed(context, '/setting');
+              },
+            ),
+            ElevatedButton(
+              child: Text("Groups"),
+              onPressed: () {
+                Navigator.pushNamed(context, '/groups');
+              },
+            ),
+            ElevatedButton(
+              child: Text("Messenger"),
+              onPressed: () {
+                Navigator.pushNamed(context, '/messaging');
+              },
+            ),
+          ],
+        )
+      ),
+    );
+
+  }
+
+}
+
+/// sign in Page
+class SignIn extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      appBar: new AppBar(
+        title: Text("Sign in Page"),
+      ),
+      body: Center(
+        child: Text("Welcome to the Sign in Page ") ,
+      ),
+    );
+
+  }
+
+}
+
+/// Sign Up page where the user will enter there info
+/// TODO: find out how to have the user login with their google apple and other emails / accounts
+/// Prob some API but hey who knows
+/// ?AWS MAYBE AWS cognito could be something fun
+class SignUp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      appBar: new AppBar(
+        title: Text("Sign Up Page"),
+      ),
+      body: Center(
+        child: Text("Welcome to the Sign up Page\n "
+            "who wants to make this form?  ") ,
+      ),
+    );
+
+  }
+
+}
+
+/// Setting page
+class Settings extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      appBar: new AppBar(
+        title: Text("Settings Page"),
+      ),
+      body: Center(
+        child: Text("Welcome to the settings Page ") ,
+      ),
+    );
+
+  }
+
 }
